@@ -1,0 +1,22 @@
+spring:
+  rabbitmq:
+    host: 192.168.100.189 # rabbitMQ server IP
+    port: 5672      # rabbitMQ server port
+    username: anan
+    password: 123456
+
+server:
+  port: 8090
+  servlet:
+    context-path: /provider
+
+## rabbitMQ properties ,the name as you like
+mq:
+  config:
+    exchange: log.direct  # 交换器的名称
+    queue:
+      info:
+        routing-key: log.info.routing.key # info 队列路由键url
+      error:
+        routing-key: log.error.routing.key # error 队列路由键url
+
