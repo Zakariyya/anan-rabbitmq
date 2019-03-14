@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @Description:
  */
 @Component
-public class OrderSender {
+public class Sender {
 //  @Value("${mq.config.queue.error.routing-key}")
 //  private String errorRoutingKey;
 
@@ -29,10 +29,7 @@ public class OrderSender {
      * 参数3：消息
      *
      */
-    this.rabbitAmqpTemplate.convertAndSend(exchange, "order.log.info", "order.log.info:::::::"+msg);
-    this.rabbitAmqpTemplate.convertAndSend(exchange, "order.log.debug", "order.log.debug:::::::"+msg);
-    this.rabbitAmqpTemplate.convertAndSend(exchange, "order.log.error", "order.log.error:::::::"+msg);
-    this.rabbitAmqpTemplate.convertAndSend(exchange, "order.log.warn", "order.log.warn:::::::"+msg);
+    this.rabbitAmqpTemplate.convertAndSend(exchange, "", msg);
   }
 
 }

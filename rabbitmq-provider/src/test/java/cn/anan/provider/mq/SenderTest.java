@@ -18,16 +18,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SenderTest {
 
   @Autowired
-  private UserSender userSender;
-  @Autowired
-  private OrderSender orderSender;
-  @Autowired
-  private ProductSender productSender;
+  private Sender sender;
 
   @Test
   public void send() {
-    this.userSender.send("userSender..........");
-    this.orderSender.send("orderSender..........");
-    this.productSender.send("productSender..........");
+    this.sender.send("hello RabbitMQ");
   }
 }

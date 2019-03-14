@@ -13,10 +13,5 @@ server:
 ## rabbitMQ properties ,the name as you like
 mq:
   config:
-    exchange: log.topic  # 交换器的名称
-#    queue:
-#      info:
-#        routing-key: log.info.routing.key # info 队列路由键url
-#      error:
-#        routing-key: log.error.routing.key # error 队列路由键url
+    exchange: order.fanout  # 交换器的名称
 
