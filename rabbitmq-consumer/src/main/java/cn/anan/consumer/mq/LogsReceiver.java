@@ -37,13 +37,13 @@ import org.springframework.stereotype.Component;
 @Component
 @RabbitListener(
         bindings = @QueueBinding(
-                value = @Queue(value = "${mq.config.queue.error.value}",autoDelete ="true"),
+                value = @Queue(value = "${mq.config.queue.logs.value}",autoDelete ="true"),
                 exchange = @Exchange(value = "${mq.config.exchange}",type = ExchangeTypes.TOPIC),
 //                key = "${mq.config.queue.error.routing-key}"
-                key = "*.log.error"
+                key = "*.log.*"
         )
 )
-public class ErrorReceiver {
+public class LogsReceiver {
 
   /**
    * 接收消息方法，采用消息队列监听机制
@@ -51,7 +51,7 @@ public class ErrorReceiver {
    */
   @RabbitHandler
   public void process(String msg){
-    System.out.println("receiver: error-->" + msg);
+    System.out.println("receiver: --------------all---->" + msg);
   }
 
 }

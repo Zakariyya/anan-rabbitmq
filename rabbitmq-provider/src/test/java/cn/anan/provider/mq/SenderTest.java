@@ -18,12 +18,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SenderTest {
 
   @Autowired
-  private Sender sender;
+  private UserSender userSender;
+  @Autowired
+  private OrderSender orderSender;
+  @Autowired
+  private ProductSender productSender;
 
   @Test
-  public void send() throws InterruptedException {
-    while (true) {
-      sender.send("hello-mq");
-    }
+  public void send() {
+    this.userSender.send("userSender..........");
+    this.orderSender.send("orderSender..........");
+    this.productSender.send("productSender..........");
   }
 }

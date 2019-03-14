@@ -38,8 +38,9 @@ import org.springframework.stereotype.Component;
 @RabbitListener(
         bindings = @QueueBinding(
                 value = @Queue(value = "${mq.config.queue.info.value}",autoDelete ="true"),
-                exchange = @Exchange(value = "${mq.config.exchange}",type = ExchangeTypes.DIRECT),
-                key = "${mq.config.queue.info.routing-key}"
+                exchange = @Exchange(value = "${mq.config.exchange}",type = ExchangeTypes.TOPIC),
+//                key = "${mq.config.queue.info.routing-key}"
+                key = "*.log.info"
         )
 )
 public class InfoReceiver {
