@@ -4,6 +4,13 @@ spring:
     port: 5672       # rabbitMQ server port
     username: anan
     password: 123456
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 5
+
+
 
 server:
   port: 8091

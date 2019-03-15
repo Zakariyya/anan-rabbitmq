@@ -22,11 +22,12 @@ public class SenderTest {
 
   @Test
   public void send() throws InterruptedException {
-    int flag = 0;
-    while (true){
-      flag++;
-      Thread.sleep(2000);
-      this.sender.send("hello RabbitMQ "+ flag);
-    }
+//    int flag = 0;
+//    while (true){
+//      flag++;
+//      Thread.sleep(2000);
+//      this.sender.send("hello RabbitMQ "+ flag);
+      this.sender.send("hello RabbitMQ ");
+//    }
   }
 }
