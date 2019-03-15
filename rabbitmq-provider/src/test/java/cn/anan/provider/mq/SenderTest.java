@@ -22,8 +22,11 @@ public class SenderTest {
 
   @Test
   public void send() throws InterruptedException {
+    int flag = 0;
     while (true) {
-      sender.send("hello-mq");
+      flag++;
+      Thread.sleep(2000);
+      sender.send("hello-mq--"+flag);
     }
   }
 }
