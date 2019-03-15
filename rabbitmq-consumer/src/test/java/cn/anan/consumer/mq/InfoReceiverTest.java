@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Slf4j
-public class SmsReceiverTest {
+public class InfoReceiverTest {
 
   @Test
   public void process() {

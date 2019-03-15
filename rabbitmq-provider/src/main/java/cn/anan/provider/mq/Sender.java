@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Sender {
-//  @Value("${mq.config.queue.error.routing-key}")
-//  private String errorRoutingKey;
+  @Value("${mq.config.queue.info.routing-key}")
+  private String infoRoutingKey;
 
   @Value("${mq.config.exchange}")
   private String exchange;
@@ -29,7 +29,7 @@ public class Sender {
      * 参数3：消息
      *
      */
-    this.rabbitAmqpTemplate.convertAndSend(exchange, "", msg);
+    this.rabbitAmqpTemplate.convertAndSend(exchange, infoRoutingKey, msg);
   }
 
 }

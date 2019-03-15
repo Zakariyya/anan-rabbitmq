@@ -40,12 +40,12 @@ import org.springframework.stereotype.Component;
 @Component
 @RabbitListener(
         bindings = @QueueBinding(
-                value = @Queue(value = "${mq.config.queue.sms.value}",autoDelete ="true"),
-                exchange = @Exchange(value = "${mq.config.exchange}",type = ExchangeTypes.FANOUT)
-//                key = "${mq.config.queue.info.routing-key}" //广播模式不需要路由键
+                value = @Queue(value = "${mq.config.queue.info.value}",autoDelete ="false"),
+                exchange = @Exchange(value = "${mq.config.exchange}",type = ExchangeTypes.DIRECT),
+                key = "${mq.config.queue.info.routing-key}" //广播模式不需要路由键
         )
 )
-public class SmsReceiver {
+public class InfoReceiver {
 
   /**
    * 接收消息方法，采用消息队列监听机制
@@ -53,7 +53,7 @@ public class SmsReceiver {
    */
   @RabbitHandler
   public void process(String msg){
-    System.out.println("receiver: SMS-->" + msg);
+    System.out.println("receiver: info -->" + msg);
   }
 
 }

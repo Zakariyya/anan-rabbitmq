@@ -21,7 +21,12 @@ public class SenderTest {
   private Sender sender;
 
   @Test
-  public void send() {
-    this.sender.send("hello RabbitMQ");
+  public void send() throws InterruptedException {
+    int flag = 0;
+    while (true){
+      flag++;
+      Thread.sleep(2000);
+      this.sender.send("hello RabbitMQ "+ flag);
+    }
   }
 }
